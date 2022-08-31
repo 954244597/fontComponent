@@ -1,5 +1,5 @@
 {
-  "name": "@ife/hooks",
+  "name": "@cwm/hooks",
   "version": "0.0.2",
   "description": "通用hooks",
   "main": "lib/index.js",
@@ -16,7 +16,7 @@
   "author": "cwm",
   "license": "ISC",
   "publishConfig": {
-    "registry": ""
+    "access": "public"
   },
   "repository": {
     "type": "git",
