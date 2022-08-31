@@ -1,5 +1,5 @@
 {
-  "name": "@cwm/pro-components",
+  "name": "@cwmont/pro-components",
   "version": "0.0.3",
   "description": "通用公共组件",
   "main": "lib/index.js",
