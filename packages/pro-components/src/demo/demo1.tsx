@@ -1,5 +1,4 @@
 import React from 'react';
-import './china.js';
 import { EchartsMap } from '@cwmont/pro-components';
 
 const index = () => {

@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactECharts from 'echarts-for-react';
 import { IFullScreenCardProps } from './interface';
+import './china.js';
+
 
 const Page: React.FC<IFullScreenCardProps> = ({ label }) => {
   const options = {
