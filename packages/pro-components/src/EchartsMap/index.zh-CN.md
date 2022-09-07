@@ -20,4 +20,8 @@ group:
 
 ### 中文文档 地图下钻
 
-<code src="../../demo/demo1.tsx"></code>
+## DEMO
+
+<code src="../demo/demo1.tsx"></code>
+
+<API/>
