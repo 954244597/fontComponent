@@ -12,5 +12,5 @@ group:
 ### 依赖安装
 
 ```bash
-$ npm i @ife/pro-components
+$ npm i @cwmont/pro-components
 ```

@@ -10,7 +10,7 @@ export default defineConfig({
   outputPath: 'docs-dist',
   mode: 'site',
   alias: {
-    '@ife/pro-components': resolve(
+    '@cwmont/pro-components': resolve(
       __dirname,
       './packages/pro-components/src/index.ts',
     ),
