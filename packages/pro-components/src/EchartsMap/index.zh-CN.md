@@ -24,8 +24,8 @@ group:
 
 ```tsx
 /**
- * title: 状态徽标
- * desc: 注意：需要在 .umirc 文件配置对应的主题色。<br/> @success-color：#30bf78 <br/>@warning-color：#faad14<br/>@error-color：#e02020<br/>@normal-color：#bfbfbf<br/>@processing-color：#3367d6
+ * title: 双击下钻
+ * desc: 发现bug请联系954244597
  * hideActions: ['CSB', 'EXTERNAL']
  */
 
@@ -48,17 +48,18 @@ const options = {
   geo: {
     map: 'china',
     roam: true,
-    zoom: 1.23,
-    center: [105, 36],
+    // zoom: 1.23,
+    // center: [105, 36], 如果下钻 不传这个值
     showLegendSymbol: false, // 存在legend时显示
     label: {
       normal: {
-        show: true,
+        show: false,
         fontSize: '12',
         color: '#FFF',
       },
       emphasis: {
-        fontSize: '12',
+        // show: false,
+        fontSize: '8',
         color: '#FFF',
       },
     },
