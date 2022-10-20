@@ -1,4 +1,4 @@
-# ife-common 基于 dumi + father-build + lerna 多包管理模版
+# cwmont-common 基于 dumi + father-build + lerna 多包管理模版
 
 ## feature
 
@@ -41,7 +41,7 @@ $ npm run build
 - packages
 
   - hooks ---> @ife/hooks 通用 hooks，不涉及业务逻辑
-  - pro-components ---> @ife/pro-components 通用 ppfish 增强组件，不涉及业务逻辑
+  - pro-components ---> @cwmont/pro-components 通用 ppfish 增强组件，不涉及业务逻辑
     - Table
     - Form
     - ......
