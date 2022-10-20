@@ -17,11 +17,7 @@ export default defineConfig({
     '@ife/hooks': resolve(__dirname, './packages/hooks/src/index.ts'),
   },
   resolve: {
-    includes: [
-      'docs',
-      'packages/hooks/src',
-      'packages/pro-components/src',
-    ],
+    includes: ['docs', 'packages/hooks/src', 'packages/pro-components/src'],
   },
   locales: [['zh-CN', '中文']],
   navs: {
@@ -40,5 +36,6 @@ export default defineConfig({
       },
     ],
   },
+  exportStatic: {},
   // more config: https://d.umijs.org/config
 });
