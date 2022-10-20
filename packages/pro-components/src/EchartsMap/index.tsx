@@ -126,7 +126,7 @@ const Page: React.FC<IFullScreenCardProps> = ({ label, options }) => {
           },
           color: '#00FFFF',
           symbol: 'pin',
-          symbolSize: 18,
+          symbolSize: 17,
           data: [
             {
               name: item[0],
