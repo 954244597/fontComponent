@@ -1,6 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
 import ReactECharts from 'echarts-for-react';
-import 'echarts/map/js/province/heilongjiang.js';
 import 'echarts/map/js/china.js';
 import { IFullScreenCardProps } from './interface';
 import { initImportFile, chinaDatas, chinaGeoCoordMap } from './importCity';
