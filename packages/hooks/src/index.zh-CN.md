@@ -12,5 +12,5 @@ group:
 ### 依赖安装
 
 ```bash
-$ npm i @ife/hooks
+$ npm i @cwmont/hooks
 ```

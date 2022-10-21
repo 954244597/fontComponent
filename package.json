@@ -11,6 +11,7 @@
     "release": "npm run build && npm publish",
     "start": "dumi dev",
     "docs:build": "dumi build",
+    "analyze": "set ANALYZE=1&&dumi build",
     "docs:deploy": "gh-pages -d docs-dist",
     "deploy": "npm run docs:build && npm run docs:deploy",
     "prettier": "prettier --write \"**/*.{js,jsx,tsx,ts,less,md,json}\"",
