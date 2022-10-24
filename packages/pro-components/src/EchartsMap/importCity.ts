@@ -93,13 +93,13 @@ export const chinaDatas = [
   [
     {
       name: '黑龙江',
-      value: 0,
+      value: 1,
     },
   ],
   [
     {
       name: '内蒙古',
-      value: 0,
+      value: 2,
     },
   ],
   [

@@ -38,32 +38,33 @@ export default defineConfig({
   },
   exportStatic: {},
   dynamicImport: {},
+  devtool: 'eval',
   chainWebpack(config) {
-    config.merge({
-      optimization: {
-        minimize: true,
-        splitChunks: {
-          chunks: 'async',
-          minSize: 30000,
-          minChunks: 2,
-          automaticNameDelimiter: '.',
-          cacheGroups: {
-            lodash: {
-              name: 'echarts',
-              test: /[\\/]node_modules[\\/]echarts[\\/]/,
-              chunks: 'all',
-              priority: -2,
-            },
-          },
-        },
-      },
-    });
+    // config.merge({
+    //   optimization: {
+    //     minimize: true,
+    //     splitChunks: {
+    //       chunks: 'async',
+    //       minSize: 30000,
+    //       minChunks: 2,
+    //       automaticNameDelimiter: '.',
+    //       cacheGroups: {
+    //         lodash: {
+    //           name: 'echarts',
+    //           test: /[\\/]node_modules[\\/]echarts[\\/]/,
+    //           chunks: 'all',
+    //           priority: -2,
+    //         },
+    //       },
+    //     },
+    //   },
+    // });
     //过滤掉momnet的那些不使用的国际化文件
-    config
-      .plugin('replace')
-      .use(require('webpack').ContextReplacementPlugin)
-      .tap(() => {
-        return [/moment[/\\]locale$/, /zh-cn/];
-      });
+    // config
+    //   .plugin('replace')
+    //   .use(require('webpack').ContextReplacementPlugin)
+    //   .tap(() => {
+    //     return [/moment[/\\]locale$/, /zh-cn/];
+    //   });
   },
 });

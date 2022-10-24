@@ -7,6 +7,7 @@ import { initImportFile, chinaDatas, chinaGeoCoordMap } from './importCity';
 const Page: React.FC<IFullScreenCardProps> = ({ label, options }) => {
   const instance = useRef(null);
   const [option, setoption] = useState({ geo: { map: '' } });
+  const [index, setIndex] = useState(-1);
 
   const convertData = data => {
     var res = [];
@@ -26,13 +27,99 @@ const Page: React.FC<IFullScreenCardProps> = ({ label, options }) => {
         ]);
       }
     }
+    console.log(res, 'res');
     return res;
   };
 
   useEffect(() => {
     const series = [];
+    series.push({
+      tooltip: {
+        // 显示的窗口
+        trigger: 'item',
+        formatter: function(item) {
+          console.log(item);
+          var tipHtml = '';
+          tipHtml = `<div style="padding: .6rem .8rem;font-size: .325rem;color:#fff;border-radius:10%;background: linear-gradient(#cccecf, #cccecf) left top,
+                linear-gradient(#cccecf, #cccecf) left top,
+                linear-gradient(#cccecf, #cccecf) right top,
+                linear-gradient(#cccecf, #cccecf) right top,
+                linear-gradient(#cccecf, #cccecf) left bottom,
+                linear-gradient(#cccecf, #cccecf) left bottom,
+                linear-gradient(#cccecf, #cccecf) right bottom,
+                linear-gradient(#cccecf, #cccecf) right bottom;
+            background-repeat: no-repeat;
+            background-size: .08rem .3rem, .3rem .08rem;background-color:rgba(6, 79, 111,.6);">测试数据 <span style="color:#f9eb59;font-size:.4rem">5家</span> </div>`;
+          return tipHtml;
+        },
+        borderWidth: 0,
+      },
+      // name: '广东省数据',
+      type: 'map',
+      map: 'china', // 自定义扩展图表类型
+      zoom: 0.65, // 缩放
+      showLegendSymbol: true,
+      roam: true,
+      label: {
+        // 文字
+        show: true,
+        color: '#fff',
+        fontSize: 10,
+      },
+      itemStyle: {
+        // 地图样式
+        borderColor: 'rgba(147, 235, 248, 1)',
+        borderWidth: 1,
+        areaColor: {
+          type: 'radial',
+          x: 0.5,
+          y: 0.5,
+          r: 0.8,
+          colorStops: [
+            {
+              offset: 0,
+              color: 'rgba(147, 235, 248, 0)', // 0% 处的颜色
+            },
+            {
+              offset: 1,
+              color: 'rgba(147, 235, 248, .2)', // 100% 处的颜色
+            },
+          ],
+          globalCoord: false, // 缺省为 false
+        },
+        shadowColor: 'rgba(128, 217, 248, 1)',
+        // shadowColor: 'rgba(255, 255, 255, 1)',
+        shadowOffsetX: -2,
+        shadowOffsetY: 2,
+        shadowBlur: 10,
+      },
+      emphasis: {
+        // 鼠标移入动态的时候显示的默认样式
+        itemStyle: {
+          areaColor: '#4adcf0',
+          borderColor: '#404a59',
+          borderWidth: 1,
+        },
+        label: {
+          // 文字
+          show: true,
+          color: '#fff',
+          fontSize: 10,
+        },
+      },
+      layoutCenter: ['50%', '50%'],
+      layoutSize: '160%',
+      markPoint: {
+        symbol: 'none',
+      },
+      data: [
+        { name: '黑龙江', value: 'cwm1' },
+        { name: '吉林', value: 'cwm2' },
+        { name: '辽宁', value: 'cwm3' },
+      ],
+    });
+
     [['浙江', chinaDatas]].forEach(function(item, i) {
-      console.log(item);
       series.push(
         {
           type: 'lines',
@@ -90,6 +177,12 @@ const Page: React.FC<IFullScreenCardProps> = ({ label, options }) => {
             },
           },
           data: chinaDatas.map(function(dataItem) {
+            console.log({
+              name: dataItem[0].name,
+              value: chinaGeoCoordMap[dataItem[0].name].concat([
+                dataItem[0].value,
+              ]),
+            });
             return {
               name: dataItem[0].name,
               value: chinaGeoCoordMap[dataItem[0].name].concat([
@@ -135,8 +228,9 @@ const Page: React.FC<IFullScreenCardProps> = ({ label, options }) => {
         },
       );
     });
+
     options.series = series;
-    console.log(options);
+    console.log(series);
     setoption({ ...options });
   }, []);
 
@@ -168,7 +262,24 @@ const Page: React.FC<IFullScreenCardProps> = ({ label, options }) => {
       />
       <button
         onClick={() => {
+          const echarts = instance.current.getEchartsInstance();
           console.log(instance);
+          // instance.current.getEchartsInstance().dispatchAction({
+          //   type: 'downplay',
+          //   seriesIndex: 0,
+          //   dataIndex: index,
+          // });
+          echarts.dispatchAction({
+            type: 'highlight',
+            seriesIndex: 0,
+            dataIndex: 13,
+          });
+          echarts.dispatchAction({
+            type: 'showTip',
+            seriesIndex: 0,
+            dataIndex: 13,
+          });
+          // setIndex(index + 1);
         }}
       ></button>
     </div>

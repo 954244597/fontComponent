@@ -34,7 +34,7 @@ import { EchartsMap } from '@cwmont/pro-components';
 
 const options = {
   tooltip: {
-    show: false,
+    show: true,
   },
   title: {
     top: 20,
@@ -45,6 +45,7 @@ const options = {
       color: '#000',
     },
   },
+  // geo: {},
   geo: {
     map: 'china',
     roam: true,
@@ -60,17 +61,17 @@ const options = {
       emphasis: {
         // show: false,
         fontSize: '8',
-        color: '#FFF',
+        color: 'red',
       },
     },
     itemStyle: {
       normal: {
         borderColor: '#4C63E5', // 地图边框颜色
         borderWidth: 2, // 地图边框大小
-        areaColor: '#050934', // 各个省份颜色
+        areaColor: 'black', // 各个省份颜色
       },
       emphasis: {
-        areaColor: '#050934', // hover颜色
+        areaColor: 'red', // hover颜色
       },
     },
   },
